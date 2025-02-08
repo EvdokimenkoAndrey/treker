@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body, html {
+    background-color: #292a2d;
+    height: 100%;
+    font-family: "Open Sans";
+    color: white;
+}
+@font-face {
+    src: url("fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+    font-family: "Open Sans";
+    font-style: normal;
+}
+.entries-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.entry {
+    background-color: #404045;
+    border-radius: 10px;
+    padding: 10px; /* Увеличим отступы */
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0px 8px 20px rgba(67, 67, 68, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+.entry img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.entry p {
+    color: white;
+    margin: 3px 0;
+}
+
+.entry button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FF5354; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    font-family: "Open Sans";
+    font-weight: 600;
+}
+
+.entry button:hover {
+    background-color: #E53935;
+}
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FF5354; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #E53935; 
+}

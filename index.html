@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/smile6.png">
+    <title>Treker</title>
+</head>
+<body>
+    <main>
+        <div class="introduction" id="introduction">
+            <div class="welcome">
+                <img src="images/smile6.png" class="smile">
+                <h1 class="h">Добро пожаловать!</h1></div>
+            <p class="description">Иногда нам нужно просто поделиться своим днем, даже если рядом никого нет. Этот трекер - твое личное пространство, где ты можешь честно оценить свой день и записать все, что тебя тревожит или радует. Помни: каждый день уникален, и твои чувства важны.</p>
+            <button id ="startButton">Начать</button>
+        </div>
+        <div class="form">
+            <h2 class="h2">Как вы сегодня провели свой день?</h2>
+            <div class="smiles">
+                <div class="emoji" data-value="Отлично">
+                    <img src="images/smile5.png" class="smile">
+                    <p class="estimates" data-value="Отлично" style="color: #3FE98B;">Отлично</p>
+                </div>
+                <div class="emoji" data-value="Хорошо">
+                    <img src="images/smile4.png" class="smile">
+                    <p class="estimates" data-value="Хорошо" style="color: #6AEAE1;">Хорошо</p>
+                </div>
+                <div class="emoji" data-value="Так себе">
+                    <img src="images/smile3.png" class="smile">
+                    <p class="estimates" data-value="Так себе" style="color: #FFDD5A;">Так себе</p>
+                </div>
+                <div class="emoji" data-value="Плохо">
+                    <img src="images/smile2.png" class="smile">
+                    <p class="estimates" data-value="Плохо" style="color: #FFA100;">Плохо</p>
+                </div>
+                <div class="emoji" data-value="Ужасно">
+                    <img src="images/smile1.png" class="smile">
+                    <p class="estimates" data-value="Ужасно" style="color: #FF5354;">Ужасно</p>
+                </div>
+            </div>
+        </div>    
+            <div class="form-text" id="form-text">
+                <h2 class="h2">Расскажи, почему у тебя сегодня такой день.</h2>
+                <div class="texts">
+                <input type="text" class="zagolovok" placeholder="Кратко опишите...(до 100 символов)" maxlength="100">
+                <textarea class="day" id="day" placeholder="Расскажите подробнее...(до 2000 символов)" maxlength="2000"></textarea>
+                </div>
+                <button id="sendButton">Отправить</button>
+            </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
