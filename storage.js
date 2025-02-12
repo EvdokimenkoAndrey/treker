@@ -1,22 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const entriesContainer = document.getElementById('entries-container');
 
-    // Функция для получения записей из localStorage
+
     function getEntries() {
         return JSON.parse(localStorage.getItem('entries')) || [];
     }
 
-    // Функция для сохранения записей в localStorage
     function saveEntries(entries) {
         localStorage.setItem('entries', JSON.stringify(entries));
     }
 
-    // Функция для отображения записей
+  
     function displayEntries(entries) {
-        entriesContainer.innerHTML = ''; // Очищаем контейнер перед отрисовкой
+        entriesContainer.innerHTML = ''; 
 
         if (entries.length === 0) {
-            // Если записей нет, показываем сообщение
+
             const noEntriesMessage = document.createElement('div');
             noEntriesMessage.classList.add('no-entries-message');
             noEntriesMessage.innerHTML = `
@@ -24,88 +23,88 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             entriesContainer.appendChild(noEntriesMessage);
         } else {
-            // Если записи есть, отображаем их
+   
             entries.forEach((entry, index) => {
                 const entryDiv = document.createElement('div');
                 entryDiv.classList.add('entry');
 
-                // Создание кнопки со стрелочкой
+
                 const toggleButton = document.createElement('button');
                 toggleButton.classList.add('toggle-button');
-                toggleButton.textContent = '▼'; // Стрелочка вниз
-                toggleButton.setAttribute('aria-expanded', 'false'); // Для доступности
+                toggleButton.textContent = '▼'; 
+                toggleButton.setAttribute('aria-expanded', 'false');
 
-                // Обработчик клика по кнопке
+ 
                 toggleButton.addEventListener('click', () => {
                     const formElement = entryDiv.querySelector('.entry-form');
                     if (formElement.style.display === 'block') {
                         formElement.style.display = 'none';
-                        toggleButton.textContent = '▼'; // Меняем стрелочку на "вниз"
+                        toggleButton.textContent = '▼'; 
                         toggleButton.setAttribute('aria-expanded', 'false');
                     } else {
                         formElement.style.display = 'block';
-                        toggleButton.textContent = '▲'; // Меняем стрелочку на "вверх"
+                        toggleButton.textContent = '▲';
                         toggleButton.setAttribute('aria-expanded', 'true');
                     }
                 });
 
-                // Блок с формой текста
+           
                 const formDiv = document.createElement('div');
                 formDiv.classList.add('entry-form');
-                formDiv.style.display = 'none'; // Сначала скрыто
+                formDiv.style.display = 'none'; 
 
-                // Создаем div для редактирования
+              
                 const descriptionDiv = document.createElement('div');
                 descriptionDiv.classList.add('description-text');
-                descriptionDiv.contentEditable = 'false'; // По умолчанию не редактируемый
-                descriptionDiv.innerHTML = entry.description; // Заполняем текущим текстом
+                descriptionDiv.contentEditable = 'false';
+                descriptionDiv.innerHTML = entry.description;
 
-                // Иконка карандаша
+                
                 const editIcon = document.createElement('img');
-                editIcon.src = 'images/pen.png'; // Путь к вашей иконке карандаша
+                editIcon.src = 'images/pen.png'; 
                 editIcon.alt = 'Редактировать';
                 editIcon.classList.add('edit-icon');
                 editIcon.style.cursor = 'pointer';
 
-                // Обработчик клика на иконку карандаша
+               
                 editIcon.addEventListener('click', () => {
                     const formElement = entryDiv.querySelector('.entry-form');
 
-                    // Показываем форму текста, если она скрыта
+                  
                     if (formElement.style.display !== 'block') {
                         formElement.style.display = 'block';
-                        toggleButton.textContent = '▲'; // Меняем стрелочку на "вверх"
+                        toggleButton.textContent = '▲';
                         toggleButton.setAttribute('aria-expanded', 'true');
                     }
 
-                    // Включаем режим редактирования
+                    
                     if (!descriptionDiv.isContentEditable) {
-                        descriptionDiv.contentEditable = 'true'; // Разрешаем редактирование
-                        descriptionDiv.focus(); // Фокус на div
+                        descriptionDiv.contentEditable = 'true'; 
+                        descriptionDiv.focus();
 
-                        // Автоматическое сохранение при каждом изменении
+                       
                         descriptionDiv.addEventListener('input', () => {
                             const updatedDescription = descriptionDiv.innerText;
-                            entries[index].description = updatedDescription; // Обновляем описание
-                            saveEntries(entries); // Сохраняем изменения
+                            entries[index].description = updatedDescription;
+                            saveEntries(entries); 
                         });
                     } else {
-                        descriptionDiv.contentEditable = 'false'; // Выключаем редактирование
+                        descriptionDiv.contentEditable = 'false'; 
                     }
                 });
 
                 formDiv.appendChild(descriptionDiv);
 
-                // Создание кнопки удаления
+             
                 const deleteButton = document.createElement('button');
                 deleteButton.textContent = 'Удалить';
                 deleteButton.classList.add('delete-button');
 
-                // Обработчик удаления записи
+               
                 deleteButton.addEventListener('click', () => {
-                    const updatedEntries = entries.filter((_, i) => i !== index); // Удаляем запись по индексу
-                    saveEntries(updatedEntries); // Сохраняем обновленные данные
-                    displayEntries(updatedEntries); // Перерисовываем записи
+                    const updatedEntries = entries.filter((_, i) => i !== index);
+                    saveEntries(updatedEntries);
+                    displayEntries(updatedEntries); 
                 });
 
                 entryDiv.innerHTML = `
@@ -114,18 +113,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>${entry.date}</p>
                 `;
 
-                // Добавляем элементы в форму
-                entryDiv.appendChild(toggleButton); // Кнопка со стрелочкой
-                entryDiv.appendChild(formDiv); // Форма текста
-                entryDiv.appendChild(deleteButton); // Кнопка удаления
-                entryDiv.appendChild(editIcon); // Иконка карандаша
+              
+                entryDiv.appendChild(toggleButton);
+                entryDiv.appendChild(formDiv); 
+                entryDiv.appendChild(deleteButton); 
+                entryDiv.appendChild(editIcon); 
 
                 entriesContainer.appendChild(entryDiv);
             });
         }
     }
 
-    // Функция для получения имени файла эмодзи
+ 
     function getEmojiImage(emoji) {
         switch (emoji) {
             case 'Отлично': return 'smile5';
@@ -135,11 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'Ужасно': return 'smile1';
             default: 
                 console.warn(`Неизвестная оценка: ${emoji}`);
-                return 'smile6'; // Возвращаем дефолтное значение
+                return 'smile6'; 
         }
     }
 
-    // Получаем и отображаем записи при загрузке страницы
+   
     const entries = getEntries();
     displayEntries(entries);
 });
