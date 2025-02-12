@@ -184,7 +184,7 @@ h2 {
 }
 
 .day {
-    height: 500px;
+    height: 400px;
     font-size: 1.1rem;
 }
 
@@ -196,10 +196,16 @@ h2 {
 #sendButton {
     margin-top: -20px;
 }
-@media (max-width: 750px) {
+@media (max-width: 810px) {
     .view-data-icon {
         width: 50px;
         margin: 20px;
+    }
+    .day {
+        height: 350px;
+    }
+    .view-data-icon {
+        margin: 5px;
     }
 }
 @media (max-width: 615px) {
@@ -214,6 +220,9 @@ h2 {
     }
     .view-entries-button {
         font-size: 11px;
+    }
+    #sendButton {
+        margin-top: 0;
     }
 }
 @media (max-width: 562px) {
@@ -265,6 +274,10 @@ h2 {
     .edit-icon {
         width: 25px;
     }
+    .view-data-icon {
+        margin: 10px;
+        width: 40px;
+    }
 }
 @media (max-width: 430px) {
     .h {
@@ -307,5 +320,7 @@ h2 {
     }
     .view-data-icon {
         width: 40px;
+        margin: 10px;
+        margin-top: 20px;
     }
 }
