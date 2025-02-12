@@ -277,6 +277,7 @@ h2 {
     .view-data-icon {
         margin: 10px;
         width: 40px;
+        margin-top: 30px;
     }
 }
 @media (max-width: 430px) {
