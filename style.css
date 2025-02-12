@@ -33,13 +33,14 @@ main {
     border-radius: 10pt;
     background-color: #404045;
     width: 510px;
-    gap: 70pt;
+    gap: 40px;
     box-shadow: 0px 8px 20px rgba(89, 89, 92, 1);
 }
 .welcome {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 .description {
     color: white;
@@ -47,7 +48,7 @@ main {
     font-size: 15pt;
 }
 #sendButton, #startButton {
-    margin-top: -75px;
+    margin-top: -20px;
     padding: 17px 40px;
     font-size: 18px;
     cursor: pointer;
@@ -56,8 +57,24 @@ main {
     background: linear-gradient(#3FE98B, #6AEAE1);
     font-weight: 600;
 }
-#sendButton, #startButton:hover {
+#sendButton:hover, #startButton:hover {
     filter: brightness(0.8);
+}
+/* Стиль для кнопки "Посмотреть записи" */
+.view-entries-button {
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10pt;
+    font-weight: 600;
+    transition: filter 0.3s ease;
+    text-decoration: none;
+    margin-left: 220px;
+    color: #0128ff;
+}
+
+.view-entries-button:hover {
+    filter: brightness(0.9); /* Немного затемняем при наведении */
 }
 .form {
     display: none;
@@ -85,7 +102,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20pt;
+    gap: 20px;
     padding: 0 20pt;
     box-sizing: border-box;
 }
@@ -94,7 +111,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5pt;
+    gap: 13px;
     width: 20%;
     max-width: 100pt;
     box-sizing: border-box;
@@ -156,12 +173,8 @@ h2 {
 .zagolovok, .day {
     border-radius: 10px;
     border: none;
-    font-size: 14pt;
+    font-size: 16px;
     padding: 15px;
-}
-
-input::placeholder {
-    font-size: 12pt;
     font-family: "Open Sans";
 }
 
@@ -170,9 +183,6 @@ input::placeholder {
     font-size: 1.1rem;
 }
 
-.day::placeholder {
-    font-size: 12pt;
-}
 .h {
     color: white; 
     font-weight: 600; 
@@ -191,14 +201,22 @@ input::placeholder {
     #form-text.active {
         gap: 17px;
     }
+    .view-entries-button {
+        font-size: 11px;
+    }
 }
 @media (max-width: 562px) {
     .introduction {
         width: 410px;
         gap: 30pt;
+        padding: 35px;
     }
     .h {
-        font-size: 24pt;
+        font-size: 19pt;
+    }
+    .view-entries-button {
+        font-size: 12px;
+        margin-left: 170px;
     }
     .smile {
         width: 30%;
@@ -232,5 +250,48 @@ input::placeholder {
     }
     .bttn {
         margin-top: 0;
+    }
+    .edit-icon {
+        width: 25px;
+    }
+}
+@media (max-width: 430px) {
+    .h {
+        font-size: 25px;
+    }
+    .introduction {
+        padding: 30px;
+        width: 350px;
+    }
+    .smile {
+        width: 40%;
+    }
+    .view-entries-button {
+        margin-left: 160px;
+    }
+    .smile {
+        width: 100%;
+    }
+    .smiles {
+        padding: 0 10pt;
+    }
+    .h2 {
+        font-size: 10pt;
+    }
+    .estimates {
+        font-size: 7pt;
+    }
+    .form {
+        padding: 5pt;
+        max-width: 95%;
+    }
+    #form-text.active {
+        padding: 20px;
+    }
+    .day {
+        font-size: 0.8rem;
+    }
+    .zagolovok {
+        font-size: 12px;
     }
 }

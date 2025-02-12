@@ -14,6 +14,18 @@ body, html {
     font-family: "Open Sans";
     font-style: normal;
 }
+/* Стиль для сообщения об отсутствии записей */
+.no-entries-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Занимает всю высоту контейнера */
+    width: 100%; /* Занимает всю ширину контейнера */
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
 .entries-container {
     display: flex;
     flex-direction: column;
@@ -21,7 +33,31 @@ body, html {
     gap: 20px;
     padding: 20px;
 }
+/* Стили для кнопки со стрелочкой */
+.toggle-button {
+    background-color: #404045;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
 
+.toggle-button:hover {
+    background-color: #303035;
+}
+
+/* Стили для блока описания дня */
+.description {
+    background-color: #303035;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    color: white;
+}
 .entry {
     background-color: #404045;
     border-radius: 10px;
@@ -35,6 +71,16 @@ body, html {
     text-align: center;
     position: relative;
 }
+
+
+.entry img.edit-icon {
+    position: absolute;
+    right: 100px;
+    top: 12px;
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
 .entry img {
     width: 100px;
     height: auto;
@@ -46,26 +92,66 @@ body, html {
     margin: 3px 0;
 }
 
-.entry button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #FF5354; 
+.entry button.toggle-button {
+    background-color: #2d2d30;
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 14px;
+    margin-top: 0px;
     transition: background-color 0.3s ease;
-    font-family: "Open Sans";
-    font-weight: 600;
+    position: absolute;
+    left: 10px;
 }
 
-.entry button:hover {
-    background-color: #E53935;
+.entry button.toggle-button:hover {
+    background-color: #303035;
 }
 
+
+/* Стиль для формы с текстом */
+.entry-form {
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* Стиль для редактируемого блока текста */
+.entry-form .description-text {
+    width: 100%; /* Занимает всю ширину */
+    min-height: 50px; /* Минимальная высота */
+    word-break: break-word; /* Разбиение длинных слов */
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 5px;
+    box-sizing: border-box; /* Чтобы padding не выходил за пределы ширины */
+    overflow-y: hidden; /* Отключаем вертикальную прокрутку */
+    resize: none; /* Отключаем изменение размера */
+    transition: background-color 0.3s ease;
+    background-color: white;
+}
+/* Стиль для картинки домика */
+.home-icon {
+    width: 60px; /* Размер картинки */
+    height: auto;
+    cursor: pointer; /* Изменяем курсор на "пальчик" */
+    transition: transform 0.3s ease; /* Анимация при наведении */
+    filter: contrast(0);
+    position: absolute;
+    margin-left: 26px;
+}
+
+.home-icon:hover {
+    transform: scale(1.1); /* Увеличиваем картинку при наведении */
+}
+.description-text {
+    color: black;
+}
+.entry-form textarea::placeholder {
+    color: #888;
+}
 .delete-button {
     position: absolute;
     top: 10px;
@@ -78,8 +164,75 @@ body, html {
     cursor: pointer;
     font-size: 12px;
     transition: background-color 0.3s ease;
+    font-weight: 600;
 }
 
 .delete-button:hover {
     background-color: #E53935; 
+}
+.home-button {
+    background-color: #3FE98B; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-family: "Open Sans";
+    font-weight: 500;
+}
+
+.home-button:hover {
+    background-color: #2CA870; 
+}
+@media (max-width: 500px) {
+    .entry img {
+        width: 80px;
+    }
+    .delete-button {
+        padding: 7px 11px;
+        font-weight: 500;
+    }
+    .entry img.edit-icon {
+        width: 25px;
+        right: 85px;
+    }
+    .entry {
+        width: 90%;
+    }
+}
+@media (max-width: 420px) {
+    .entry {
+        width: 100%;
+    }
+
+    .entries-container {
+        padding: 5px; /* Исправлено значение padding */
+        padding-top: 10px;
+    }
+
+    .home-icon {
+        width: 40px;
+        margin-left: 13px;
+    }
+    .entry img.edit-icon {
+        right: 79px;
+        width: 21px;
+    }
+    /* Изменяем позицию иконки карандаша (.edit-icon) */
+    .edit-icon {
+        right: 85px; /* Новое значение для правого отступа */
+        top: 12px; /* Оставляем верхний отступ без изменений */
+    }
+    .entry img {
+        width: 60px;
+    }
+    .delete-button {
+        font-size: 10px;
+    }
+    .enrty p {
+        margin: 1px 0;
+        font-size: 13px;
+    }
 }
