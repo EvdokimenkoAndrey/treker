@@ -80,6 +80,7 @@ body, html {
     width: 30px;
     height: auto;
     cursor: pointer;
+    filter: invert(0.8);
 }
 .entry img {
     width: 100px;

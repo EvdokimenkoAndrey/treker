@@ -60,21 +60,26 @@ main {
 #sendButton:hover, #startButton:hover {
     filter: brightness(0.8);
 }
-/* Стиль для кнопки "Посмотреть записи" */
-.view-entries-button {
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-    border-radius: 10pt;
-    font-weight: 600;
-    transition: filter 0.3s ease;
-    text-decoration: none;
-    margin-left: 220px;
-    color: #0128ff;
+.view-data-link {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 10px; /* Отступ сверху */
+    left: 10px; /* Отступ слева */
+    z-index: 1; /* Чтобы картинка была поверх других элементов */
 }
 
-.view-entries-button:hover {
-    filter: brightness(0.9); /* Немного затемняем при наведении */
+/* Стиль для картинки */
+.view-data-icon {
+    width: 60px; /* Размер картинки */
+    height: auto;
+    cursor: pointer; /* Изменяем курсор на "пальчик" */
+    transition: transform 0.3s ease;
+    margin: 26px;
+    filter: contrast(0); /* Добавляем анимацию */
+}
+
+/* Эффект при наведении */
+.view-data-icon:hover {
+    transform: scale(1.1); /* Увеличиваем картинку при наведении */
 }
 .form {
     display: none;
@@ -191,6 +196,12 @@ h2 {
 #sendButton {
     margin-top: -20px;
 }
+@media (max-width: 750px) {
+    .view-data-icon {
+        width: 50px;
+        margin: 20px;
+    }
+}
 @media (max-width: 615px) {
     .h2 {
         font-size: 15pt;
@@ -293,5 +304,8 @@ h2 {
     }
     .zagolovok {
         font-size: 12px;
+    }
+    .view-data-icon {
+        width: 40px;
     }
 }
