@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <video id="backgroundVideo" autoplay loop>
+        <source src="mp4.mp4" type="video/mp4">
+    </video>
+    <style>
+        video {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+    <script>
+        const video = document.getElementById('backgroundVideo');
+
+        document.addEventListener('click', () => {
+            if (!video.paused && !video.muted) {
+                return; 
+            }
+            video.play();
+            video.muted = false;
+        });
+    </script>
+</body>
+</html>

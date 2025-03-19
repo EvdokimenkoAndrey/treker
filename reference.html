@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="images/НАГИЕВ.jpg" id="image">
+    <audio src="mp3.mp3" id="audio"></audio>
+    <style>
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        const image = document.getElementById('image');
+        const audio = document.getElementById('audio');
+
+        function showImageAndPlaySound() {
+            image.style.display = 'block';
+            audio.play().catch(error => {
+                console.error('Ошибка при воспроизведении аудио:', error);
+            });
+        }
+        showImageAndPlaySound()
+    </script>
+</body>
+
+</html>

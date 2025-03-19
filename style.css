@@ -61,25 +61,25 @@ main {
     filter: brightness(0.8);
 }
 .view-data-link {
-    position: absolute; 
-    top: 10px; 
-    left: 10px; 
-    z-index: 1; 
+    position: absolute; /* Абсолютное позиционирование */
+    top: 10px; /* Отступ сверху */
+    left: 10px; /* Отступ слева */
+    z-index: 1; /* Чтобы картинка была поверх других элементов */
 }
 
-
+/* Стиль для картинки */
 .view-data-icon {
-    width: 50px;
+    width: 60px; /* Размер картинки */
     height: auto;
-    cursor: pointer; 
+    cursor: pointer; /* Изменяем курсор на "пальчик" */
     transition: transform 0.3s ease;
     margin: 26px;
-    filter: contrast(0); 
+    filter: contrast(0); /* Добавляем анимацию */
 }
 
-
+/* Эффект при наведении */
 .view-data-icon:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1); /* Увеличиваем картинку при наведении */
 }
 .form {
     display: none;

@@ -14,13 +14,13 @@ body, html {
     font-family: "Open Sans";
     font-style: normal;
 }
-
+/* Стиль для сообщения об отсутствии записей */
 .no-entries-message {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; 
-    width: 100%; 
+    height: 100%; /* Занимает всю высоту контейнера */
+    width: 100%; /* Занимает всю ширину контейнера */
     color: white;
     font-size: 20px;
     text-align: center;
@@ -33,7 +33,7 @@ body, html {
     gap: 20px;
     padding: 20px;
 }
-
+/* Стили для кнопки со стрелочкой */
 .toggle-button {
     background-color: #404045;
     color: white;
@@ -50,7 +50,7 @@ body, html {
     background-color: #303035;
 }
 
-
+/* Стили для блока описания дня */
 .description {
     background-color: #303035;
     border-radius: 5px;
@@ -61,7 +61,7 @@ body, html {
 .entry {
     background-color: #404045;
     border-radius: 10px;
-    padding: 10px; 
+    padding: 10px; /* Увеличим отступы */
     width: 100%;
     max-width: 600px;
     box-shadow: 0px 8px 20px rgba(67, 67, 68, 0.85);
@@ -112,40 +112,40 @@ body, html {
 }
 
 
-
+/* Стиль для формы с текстом */
 .entry-form {
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
 }
 
-
+/* Стиль для редактируемого блока текста */
 .entry-form .description-text {
-    width: 100%; 
-    min-height: 50px; 
-    word-break: break-word; 
+    width: 100%; /* Занимает всю ширину */
+    min-height: 50px; /* Минимальная высота */
+    word-break: break-word; /* Разбиение длинных слов */
     padding: 10px;
     font-family: "Open Sans", sans-serif;
     border-radius: 5px;
-    box-sizing: border-box; 
-    overflow-y: hidden; 
-    resize: none; 
+    box-sizing: border-box; /* Чтобы padding не выходил за пределы ширины */
+    overflow-y: hidden; /* Отключаем вертикальную прокрутку */
+    resize: none; /* Отключаем изменение размера */
     transition: background-color 0.3s ease;
     background-color: white;
 }
-
+/* Стиль для картинки домика */
 .home-icon {
-    width: 60px; 
+    width: 60px; /* Размер картинки */
     height: auto;
-    cursor: pointer; 
-    transition: transform 0.3s ease; 
+    cursor: pointer; /* Изменяем курсор на "пальчик" */
+    transition: transform 0.3s ease; /* Анимация при наведении */
     filter: contrast(0);
     position: absolute;
     margin-left: 26px;
 }
 
 .home-icon:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1); /* Увеличиваем картинку при наведении */
 }
 .description-text {
     color: black;
@@ -209,7 +209,7 @@ body, html {
     }
 
     .entries-container {
-        padding: 5px; 
+        padding: 5px; /* Исправлено значение padding */
         padding-top: 10px;
     }
 
@@ -221,10 +221,10 @@ body, html {
         right: 79px;
         width: 21px;
     }
-   
+    /* Изменяем позицию иконки карандаша (.edit-icon) */
     .edit-icon {
-        right: 85px; 
-        top: 12px; 
+        right: 85px; /* Новое значение для правого отступа */
+        top: 12px; /* Оставляем верхний отступ без изменений */
     }
     .entry img {
         width: 60px;
